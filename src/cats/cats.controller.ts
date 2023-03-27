@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  ParseIntPipe,
   Post,
   Put,
 } from '@nestjs/common';
@@ -22,7 +23,7 @@ export class CatsController {
     return 'This action return all cats';
   }
   @Get(':id')
-  async getById(@Param('id') id: string): Promise<string> {
+  async getById(@Param('id', ParseIntPipe) id: number): Promise<string> {
     return 'This action is returning one cat with id: ' + id;
   }
   @Post()
